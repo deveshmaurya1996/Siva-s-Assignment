@@ -15,8 +15,7 @@ export function canUpdateStatus(user: User | null, task: Task): boolean {
   )
 }
 
-export function canDeleteTask(user: User | null, task: Task): boolean {
+export function canDeleteTask(user: User | null): boolean {
   if (!user) return false
-  if (user.role === 'admin') return true
-  return task.created_by === user.id
+  return user.role === 'admin'
 }

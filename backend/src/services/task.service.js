@@ -233,8 +233,8 @@ export async function deleteTask(taskId, user) {
   if (!existing) {
     throw new AppError(404, 'Task not found');
   }
-  if (!canAccessTask(user, existing)) {
-    throw new AppError(403, 'You do not have access to this task');
+  if (user.role !== 'admin') {
+    throw new AppError(403, 'Only administrators can delete tasks');
   }
   await db.run('DELETE FROM tasks WHERE id = ?', [taskId]);
   return { ok: true };

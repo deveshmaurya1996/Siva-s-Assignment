@@ -218,7 +218,7 @@ export function TaskListPage() {
                   </tr>
                 )}
                 {data?.tasks.map((task) => {
-                  const canDel = user && canDeleteTask(user, task);
+                  const canDel = user && canDeleteTask(user);
                   const canEdit = user && canFullEdit(user, task);
                   const canStatus = user && canUpdateStatus(user, task);
                   return (

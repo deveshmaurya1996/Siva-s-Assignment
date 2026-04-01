@@ -34,7 +34,7 @@ export function TaskDetailPage() {
 
   const currentTask = task;
   const canEdit = user && canFullEdit(user, currentTask);
-  const canDel = user && canDeleteTask(user, currentTask);
+  const canDel = user && canDeleteTask(user);
   const canStatus = user && canUpdateStatus(user, currentTask);
 
   async function handleDelete() {
